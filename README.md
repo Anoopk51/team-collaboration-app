@@ -1,10 +1,25 @@
 # Team Collaboration App
 
-A backend project built using:
+A scalable  backend project built with Django and Django REST Framework:
 
+## Tech Stack
+
+- Python
 - Django
 - Django REST Framework
 - PostgreSQL
-- Git
+- Git  & GitHub
 
-## Status
+
+## Features
+
+- User Authentication
+- Teams
+- Projects
+- Tasks
+- Comments
+- Notifications
+- File Attachments
+
+## Project Status
+ Currently Under development

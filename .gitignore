@@ -5,6 +5,8 @@ venv/
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyd
+*.pyc
 
 # Database
 db.sqlite3
@@ -24,3 +26,12 @@ Thumbs.db
 
 # Media (optional for now)
 media/
+
+# Static files(generated during deployment)
+staticfiles/
+
+# Test cache
+.pytest_cache/
+
+# Type checker cache
+.mypy_cache/

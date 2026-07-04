@@ -32,3 +32,25 @@ class JoinRequest(models.Model):
 
     def __str__(self):
         return f"{self.user.username} -> {self.team.name} ({self.status})"
+
+
+# For team membership 
+
+ROLE_CHOICES = [("OWNER","Owner"),
+                ("ADMIN","Admin"),
+                ("MEMBER","Member")]
+class TeamMembership(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL , on_delete= models.PROTECT)
+    team = models.ForeignKey("Team",on_delete=models.PROTECT)
+    role = models.CharField(max_length=10,choices=ROLE_CHOICES,default="MEMBER")
+    joined_at = models.DateTimeField(auto_now_add=True)
+    left_at = models.DateTimeField(null= True ,blank=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['user','team'],
+                                    name = "unique_team_membership"
+                                    )
+                        ]
+    def __str__(self):
+        return f"{self.user.username} --> {self.team.name} ({self.role})" 
